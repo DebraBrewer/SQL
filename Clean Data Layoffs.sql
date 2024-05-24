@@ -5,12 +5,18 @@
 -- github.com/DebraBrewer
 -- AnalystDebra@gmail.com
 -- *************************
+
+-- Project part 1: Clean data  YOU ARE HERE
+-- Project Part 2: Analyze data
+
+-- *************************************
 -- In this project, I will: 
-	-- Standardize the Data
-	-- Null/blank values
-	-- Remove any columns
-	-- Save raw data
--- *************************
+	-- 1) Create new file with data
+	-- 2) Remove duplicate rows
+	-- 3) Standardizing data 
+	-- 4) Examine nulls and blank values
+    -- 5) Remove rows and columns
+-- *************************************
 
 -- View data
 SELECT *
@@ -42,6 +48,7 @@ FROM layoffs;
 -- Note: First, I used fewer columns to find duplicate rows.  I tested the company "Oda" and realized I needed to analyze all of the columns in order to find duplicate rows.
 
 -- Search for duplicate rows
+
 SELECT *
 FROM (
 	SELECT *,
@@ -55,6 +62,7 @@ WHERE
 	row_num > 1;
 
 -- Test using company "Casper"
+
 SELECT * 
 FROM layoffs_staging
 WHERE company = 'Casper';
@@ -167,7 +175,8 @@ MODIFY COLUMN `date` DATE;
 
 -- Some industries blank or null
 -- Used Airbnb as our sample to test
--- Found company in other rows and copied label for industry
+-- Found same company in other rows and copied label for industry
+
 SELECT *
 FROM layoffs_staging_2
 WHERE industry IS NULL
@@ -197,12 +206,14 @@ WHERE t1.industry IS NULL
 AND t2.industry IS NOT NULL;  
 
 -- This company doesn't have any duplicate data, so it is still null
+
 SELECT *
 FROM layoffs_staging_2
 WHERE company LIKE 'Bally%';  
 
 -- Could populate data between total laid off and percentage laid off IF we had data for total employees
--- Since we don't, this data null data cannot be filled
+-- Since we don't, this null data cannot be filled
+
 SELECT *
 FROM layoffs_staging_2
 WHERE total_laid_off IS NULL 
@@ -215,6 +226,7 @@ WHERE total_laid_off IS NULL
 
 -- Both total laid off and percentage laid off null, we don't know how many laid off
 -- Goal of data set is to examine laid off, so these rows are unneeded
+
 SELECT *
 FROM layoffs_staging_2
 WHERE total_laid_off IS NULL 
@@ -226,8 +238,12 @@ WHERE total_laid_off IS NULL
 	AND percentage_laid_off IS NULL;
     
 -- Remove our row_num column that we created to remove duplicate rows
+
 ALTER TABLE layoffs_staging_2
 DROP COLUMN row_num;
 
 SELECT *
 FROM layoffs_staging_2;
+
+-- END of data cleaning
+-- SEE follow up for analyzing data
