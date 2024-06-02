@@ -4,6 +4,8 @@
 -- debrabrewer.github.io/
 -- github.com/DebraBrewer
 -- AnalystDebra@gmail.com
+
+-- NOTE: Use file layoffs.csv
 -- *************************
 
 -- Project part 1: Clean data  YOU ARE HERE
