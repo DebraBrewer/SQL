@@ -1,4 +1,4 @@
--- DATA CLEANING
+-- Layoffs Project Part 1 - Data Cleaning
 -- Debra Brewer
 -- www.linkedin.com/in/debrabrewer/
 -- debrabrewer.github.io/
