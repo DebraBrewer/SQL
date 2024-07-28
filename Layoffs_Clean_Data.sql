@@ -1,34 +1,39 @@
--- Layoffs Project Part 1 - Data Cleaning
--- Debra Brewer
--- www.linkedin.com/in/debrabrewer/
--- debrabrewer.github.io/
--- github.com/DebraBrewer
--- AnalystDebra@gmail.com
+/*
+**************************************
+Layoffs Project Part 1 - Data Cleaning
+Debra Brewer
+www.linkedin.com/in/debrabrewer/
+debrabrewer.github.io/
+github.com/DebraBrewer
+AnalystDebra@gmail.com
 
--- NOTE: Use file layoffs.csv
--- *************************
+NOTE: Use data file layoffs.csv and mySQL
+**************************************
 
--- Project part 1: Clean data  YOU ARE HERE
--- Project Part 2: Analyze data
+Project part 1: Clean data **THIS PROJECT**
+Project Part 2: Analyze data **See Part 2 - NEXT PROJECT**
 
--- *************************************
--- In this project, I will: 
-	-- 1) Create new file with data
-	-- 2) Remove duplicate rows
-	-- 3) Standardizing data 
-	-- 4) Examine nulls and blank values
-    -- 5) Remove rows and columns
--- *************************************
+**************************************
+In this project, I will: 
+	1) Create new file with data
+	2) Remove duplicate rows
+	3) Standardizing data 
+	4) Examine nulls and blank values
+    5) Remove rows and columns
+**************************************
+*/
 
 -- View data
 SELECT *
 FROM layoffs
 LIMIT 1000;
 
--- ************************************************** 
--- Step 1: 
--- Save copy of raw data before manipulating data set 
--- ************************************************** 
+/*
+************************************************** 
+Step 1: 
+Save copy of raw data before manipulating data set 
+************************************************** 
+*/
 
 
 CREATE TABLE layoffs_staging
@@ -42,15 +47,16 @@ INSERT layoffs_staging
 SELECT *
 FROM layoffs;
 
--- ******************************* 
--- Step 2: 
--- Remove Duplicate rows from data 
--- ******************************* 
+/*
+******************************* 
+Step 2: 
+Remove Duplicate rows from data 
+******************************* 
+*/
 
 -- Note: First, I used fewer columns to find duplicate rows.  I tested the company "Oda" and realized I needed to analyze all of the columns in order to find duplicate rows.
 
 -- Search for duplicate rows
-
 SELECT *
 FROM (
 	SELECT *,
@@ -103,11 +109,12 @@ WHERE row_num > 1;
 SELECT *
 FROM layoffs_staging_2;
 
-
--- ******************************* 
--- Step 3: 
--- Standardizing data 
--- ******************************* 
+/*
+******************************* 
+Step 3: 
+Standardizing data 
+******************************* 
+*/
 
 -- Clean company column
 -- Remove extra space at beginning
@@ -137,7 +144,7 @@ WHERE industry LIKE 'Crypto%';
 -- Only problem is 4 rows with "United States." rather than "United States"
 
 SELECT DISTINCT country
-From layoffs_staging
+From layoffs_staging_2
 ORDER By 1;
 
 SELECT country, COUNT(country)
@@ -170,10 +177,12 @@ FROM layoffs_staging_2;
 ALTER TABLE layoffs_staging_2
 MODIFY COLUMN `date` DATE;
 
--- ******************************* 
--- Step 4: 
--- Nulls and blank values
--- ******************************* 
+/*
+******************************* 
+Step 4: 
+Nulls and blank values
+******************************* 
+*/
 
 -- Some industries blank or null
 -- Used Airbnb as our sample to test
@@ -221,10 +230,12 @@ FROM layoffs_staging_2
 WHERE total_laid_off IS NULL 
 	OR percentage_laid_off IS NULL;
 
--- ******************************* 
--- Step 5: 
--- Remove rows and columns
--- ******************************* 
+/*
+******************************* 
+Step 5: 
+Remove rows and columns
+******************************* 
+*/
 
 -- Both total laid off and percentage laid off null, we don't know how many laid off
 -- Goal of data set is to examine laid off, so these rows are unneeded
@@ -247,5 +258,7 @@ DROP COLUMN row_num;
 SELECT *
 FROM layoffs_staging_2;
 
--- END of data cleaning
--- SEE follow up for analyzing data
+/*
+END of data cleaning
+SEE Part 2 for in depth analysis of data
+*/
