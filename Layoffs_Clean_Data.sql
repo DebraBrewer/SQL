@@ -7,7 +7,7 @@ debrabrewer.github.io/
 github.com/DebraBrewer
 AnalystDebra@gmail.com
 
-NOTE: Use data file layoffs.csv and mySQL
+NOTE: Use data file layoffs_dirty.csv and mySQL
 **************************************
 
 Project part 1: Clean data **THIS PROJECT**
