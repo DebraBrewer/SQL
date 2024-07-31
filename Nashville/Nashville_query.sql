@@ -10,10 +10,10 @@ AnalystDebra@gmail.com
 NOTE: Use file nashville.xlsx and SQL Server
 **************************************************
 In this project, I will: 
-	1) Standardize date format
-	2) Populate property address data
-	3) Breaking Address into parts (address, city, state)
-	4) Change "Y" and "N" to "Yes" and "No" (for "Sold as vacant" field)
+    1) Standardize date format
+    2) Populate property address data
+    3) Breaking Address into parts (address, city, state)
+    4) Change "Y" and "N" to "Yes" and "No" (for "Sold as vacant" field)
     5) Remove duplicates
     6) Delete unused columns
 **************************************************
