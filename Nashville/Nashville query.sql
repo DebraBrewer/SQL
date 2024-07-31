@@ -7,7 +7,7 @@ debrabrewer.github.io/
 github.com/DebraBrewer
 AnalystDebra@gmail.com
 
-NOTE: Use file nashville.xlsx
+NOTE: Use file nashville.xlsx and SQL Server
 **************************************************
 In this project, I will: 
 	1) Standardize date format
